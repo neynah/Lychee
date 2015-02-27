@@ -10,10 +10,6 @@ contextMenu.add = function(e) {
 	var items = [
 		{ type: 'item', title: 'Upload Photo', icon: 'icon-picture', fn: function() { $('#upload_files').click() } },
 		{ type: 'separator' },
-		{ type: 'item', title: 'Import from Link', icon: 'icon-link', fn: upload.start.url },
-		{ type: 'item', title: 'Import from Dropbox', icon: 'icon-folder-open', fn: upload.start.dropbox },
-		{ type: 'item', title: 'Import from Server', icon: 'icon-hdd', fn: upload.start.server },
-		{ type: 'separator' },
 		{ type: 'item', title: 'New Album', icon: 'icon-folder-close', fn: album.add }
 	];
 
@@ -26,15 +22,11 @@ contextMenu.add = function(e) {
 contextMenu.settings = function(e) {
 
 	var items = [
-		{ type: 'item', title: 'Change Login', icon: 'icon-user', fn: settings.setLogin },
 		{ type: 'item', title: 'Change Sorting', icon: 'icon-sort', fn: settings.setSorting },
-		{ type: 'item', title: 'Set Dropbox', icon: 'icon-folder-open', fn: settings.setDropboxKey },
 		{ type: 'separator' },
 		{ type: 'item', title: 'About Lychee', icon: 'icon-info-sign', fn: function() { window.open(lychee.website) } },
 		{ type: 'item', title: 'Diagnostics', icon: 'icon-dashboard', fn: function() { window.open('plugins/check/') } },
 		{ type: 'item', title: 'Show Log', icon: 'icon-list', fn: function() { window.open('plugins/displaylog/') } },
-		{ type: 'separator' },
-		{ type: 'item', title: 'Sign Out', icon: 'icon-signout', fn: lychee.logout }
 	];
 
 	basicContext.show(items, e);
@@ -181,15 +173,7 @@ contextMenu.sharePhoto = function(photoID, e) {
 	if (photo.json.public==='2') link = location.href;
 
 	var items = [
-		{ type: 'item', title: '<input readonly id="link" value="' + link + '">', fn: function() {}, class: 'noHover' },
-		{ type: 'separator' },
 		{ type: 'item', title: 'Make Private', icon: 'icon-eye-close', fn: function() { photo.setPublic(photoID) } },
-		{ type: 'separator' },
-		{ type: 'item', title: 'Twitter', icon: 'icon-twitter', fn: function() { photo.share(photoID, 0) } },
-		{ type: 'item', title: 'Facebook', icon: 'icon-facebook', fn: function() { photo.share(photoID, 1) } },
-		{ type: 'item', title: 'Mail', icon: 'icon-envelope', fn: function() { photo.share(photoID, 2) } },
-		{ type: 'item', title: 'Dropbox', icon: 'icon-hdd', fn: function() { photo.share(photoID, 3) } },
-		{ type: 'item', title: 'Direct Link', icon: 'icon-link', fn: function() { window.open(photo.getDirectLink()) } }
 	];
 
 	basicContext.show(items, e);
@@ -200,13 +184,7 @@ contextMenu.sharePhoto = function(photoID, e) {
 contextMenu.shareAlbum = function(albumID, e) {
 
 	var items = [
-		{ type: 'item', title: '<input readonly id="link" value="' + location.href + '">', fn: function() {}, class: 'noHover' },
-		{ type: 'separator' },
 		{ type: 'item', title: 'Make Private', icon: 'icon-eye-close', fn: function() { album.setPublic(albumID) } },
-		{ type: 'separator' },
-		{ type: 'item', title: 'Twitter', icon: 'icon-twitter', fn: function() { album.share(0) } },
-		{ type: 'item', title: 'Facebook', icon: 'icon-facebook', fn: function() { album.share(1) } },
-		{ type: 'item', title: 'Mail', icon: 'icon-envelope', fn: function() { album.share(2) } }
 	];
 
 	basicContext.show(items, e);
