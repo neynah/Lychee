@@ -25,8 +25,8 @@ contextMenu.settings = function(e) {
 		{ type: 'item', title: 'Change Sorting', icon: 'icon-sort', fn: settings.setSorting },
 		{ type: 'separator' },
 		{ type: 'item', title: 'About Lychee', icon: 'icon-info-sign', fn: function() { window.open(lychee.website) } },
-		{ type: 'item', title: 'Diagnostics', icon: 'icon-dashboard', fn: function() { window.open('plugins/check/') } },
-		{ type: 'item', title: 'Show Log', icon: 'icon-list', fn: function() { window.open('plugins/displaylog/') } },
+		{ type: 'item', title: 'Diagnostics', icon: 'icon-dashboard', fn: function() { window.open('plugins/check/', '_self') } },
+		{ type: 'item', title: 'Show Log', icon: 'icon-list', fn: function() { window.open('plugins/displaylog/', '_self') } },
 	];
 
 	basicContext.show(items, e);
