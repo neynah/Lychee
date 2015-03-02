@@ -289,7 +289,7 @@ lychee.setMode = function(mode) {
 
 	if (mode==='public') {
 
-		$('header #button_signin, header #hostedwith').show();
+		// $('header #button_signin, header #hostedwith').show();
 		lychee.publicMode = true;
 
 	} else if (mode==='view') {
