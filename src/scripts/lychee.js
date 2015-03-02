@@ -180,6 +180,11 @@ lychee.goto = function(url) {
 	else					url = '#' + url;
 
 	history.pushState(null, null, url);
+
+	/* Sandstorm location */
+	var locationStr = location.toString();
+	window.parent.postMessage({'setPath': location.pathname + location.hash}, '*');
+
 	lychee.load();
 
 }
