@@ -173,6 +173,8 @@ contextMenu.sharePhoto = function(photoID, e) {
 	if (photo.json.public==='2') link = location.href;
 
 	var items = [
+		{ type: 'item', title: 'Copy url from your address bar to share', fn: function() {}, class: 'noHover' },
+		{ type: 'separator' },
 		{ type: 'item', title: 'Make Private', icon: 'icon-eye-close', fn: function() { photo.setPublic(photoID) } },
 	];
 
@@ -184,6 +186,8 @@ contextMenu.sharePhoto = function(photoID, e) {
 contextMenu.shareAlbum = function(albumID, e) {
 
 	var items = [
+		{ type: 'item', title: 'Copy url from your address bar to share', fn: function() {}, class: 'noHover' },
+		{ type: 'separator' },
 		{ type: 'item', title: 'Make Private', icon: 'icon-eye-close', fn: function() { album.setPublic(albumID) } },
 	];
 
